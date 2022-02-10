@@ -15,7 +15,7 @@
         <tr>
         <th scope="row">{{$loop->index+1}}</th>
         <td>{{$todo->todo}}</td>
-        <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$todo->date_of_event,'UTC')->setTimezone($timezone) }}</td>
+        <td>{{ \Carbon\Carbon::parse($todo->date_of_event,'UTC')->setTimezone($timezone)->isoFormat("MMMM Do YYYY, h:mm:ss a") }}</td>
         <td>
             <button wire:click="edit({{$todo->id}})" class="btn btn-primary btn-sm">Edit</button>
             <button wire:click="delete({{$todo->id}})" class="btn btn-danger btn-sm">Delete</button>
