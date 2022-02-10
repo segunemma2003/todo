@@ -41,8 +41,7 @@ class ShowTodo extends Component
     public function getDateLocal($date)
     {
 
-        $datetime = Carbon::createFromTimestamp($date);
-        $datetime->setTimezone($this->timezone)->isoFormat("MMMM Do YYYY, h:mm:ss a");
+        $datetime = Carbon::createFromTimestamp($date)->setTimezone($this->timezone)->isoFormat("MMMM Do YYYY, h:mm:ss a");
         return $datetime; 
     }
  
