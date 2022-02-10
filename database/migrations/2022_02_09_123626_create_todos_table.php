@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('timezone');
             $table->bigInteger('created_by');
             $table->bigInteger('modified_by')->nullable();
-            $table->datetime('date_of_event');
+            $table->string('date_of_event');
             $table->timestamps();
         });
     }

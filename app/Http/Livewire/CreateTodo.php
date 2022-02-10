@@ -46,9 +46,11 @@ class CreateTodo extends Component
 public function setDateLocal($date)
 {
 
-    $datetime = Carbon::parse($date, $this->timezone)->setTimezone('UTC');
+    $datetime = strtotime($date);
     return $datetime; 
 }
+
+
     public function update()
     {
         $this->validate();
