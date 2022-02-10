@@ -47,7 +47,7 @@ public function getDateLocal($date)
 {
 
     $datetime = Carbon::createFromFormat('Y-m-d H:i:s', $date, 'UTC');
-    $datetime->setTimezone($this->timezone);
+    $datetime->shiftTimezone($this->timezone);
     return $datetime; 
 }
     public function update()
