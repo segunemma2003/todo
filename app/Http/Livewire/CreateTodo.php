@@ -33,7 +33,7 @@ class CreateTodo extends Component
         $this->validate();
         Todo::create([
             'todo' => $this->todo,
-            'date_of_event' => $this->date_of_event,
+            'date_of_event' => $this->setDateLocal($this->date_of_event),
             'timezone'=> $this->timezone,
             'created_by'=>auth()->user()->id
         ]);
@@ -43,11 +43,11 @@ class CreateTodo extends Component
     }
 
   
-public function getDateLocal($date)
+public function setDateLocal($date)
 {
 
-    $datetime = Carbon::createFromFormat('Y-m-d H:i:s', $date);
-    $datetime->shiftTimezone($this->timezone);
+    $datetime = Carbon::createFromFormat('Y-m-d H:i:s', $date,$this->timezone);
+    $datetime->setTimezone('UTC');
     return $datetime; 
 }
     public function update()
@@ -55,7 +55,7 @@ public function getDateLocal($date)
         $this->validate();
         $this->todo_data = Todo::findOrFail($this->todo_data['id']);
         $this->todo_data->todo = $this->todo;
-        $this->todo_data->date_of_event = $this->date_of_event;
+        $this->todo_data->date_of_event = $this->setDateLocal($this->date_of_event);
         $this->todo_data->timezone = $this->timezone;
         $this->todo_data->modified_by = auth()->user()->id;
         $this->todo_data->save();
