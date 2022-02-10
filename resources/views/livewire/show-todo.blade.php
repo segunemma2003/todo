@@ -15,7 +15,7 @@
         <tr>
         <th scope="row">{{$loop->index+1}}</th>
         <td>{{$todo->todo}}</td>
-        <td>{{$this->getDateLocal($todo->date_of_event)}}</td>
+        <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$todo->date_of_event)->shiftTimezone($timezone) }}</td>
         <td>
             <button wire:click="edit({{$todo->id}})" class="btn btn-primary btn-sm">Edit</button>
             <button wire:click="delete({{$todo->id}})" class="btn btn-danger btn-sm">Delete</button>
