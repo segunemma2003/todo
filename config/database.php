@@ -45,10 +45,9 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            // 'url' => env('DATABASE_URL'),
-            // 'host' => env('DB_HOST', '127.0.0.1'),
-            'url' => 'db4free.net',
-            'host' => 'db4free.net',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+        
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'michael_1'),
             'username' => env('DB_USERNAME', 'njesus'),

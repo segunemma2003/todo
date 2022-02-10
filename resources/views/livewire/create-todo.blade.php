@@ -25,7 +25,7 @@
 
  
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Todo </label>
+    <label for="exampleFormControlTextarea1">Todo {{$timezone}} </label>
     <textarea  wire:model.debounce.500ms="todo" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     @error('todo') <span class="error">{{ $message }}</span> @enderror  
 </div>
